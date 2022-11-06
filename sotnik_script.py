@@ -366,11 +366,8 @@ def vkLongPoll(vk_session, group_id):
     '''cur_time = datetime.now()
     q.enqueue_at(cur_time, getInfoAbountStudents)'''
     if event.type == VkBotEventType.MESSAGE_NEW:
-      print(event.object.message)
       user_message = event.object.message['text'].lower()
       user_id = event.object.message['from_id']
-      print(user_message)
-      print(user_id)
       if user_id not in ALL_USERS_IN_CURRENT_SESSION:
         ALL_USERS_IN_CURRENT_SESSION.append(user_id)
         send_message(user_id, {'message': 'Бот "Сотник" приветствует Вас!', 'keyboard': main_key_board()}, vk_session)
@@ -389,8 +386,7 @@ def vkLongPoll(vk_session, group_id):
             vk_session.method('messages.send', {'user_id': findOwnVkId(),
                                                   'random_id': 0,
                                                   'message' : 'Отправил фотку с подтверждением отсрочки: https://vk.com/id' +
-                                                  str(user_id) + ' в ' + str(datetime.now()),
-                                                  'attachments' : 'photo<387467969>_<457265417>'})
+                                                  str(user_id) + ' в ' + str(datetime.now())})
       elif user_message.find("пд:подтверждение") != -1:
          send_message(user_id, {'message': 'Вы не прикрепили фотку.'},vk_session)
 #Start Vk Session
