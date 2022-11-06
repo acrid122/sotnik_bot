@@ -395,7 +395,7 @@ def vkBotSession():
   return vk_session
 #Own Vk_id
 def findOwnVkId():
-  own_vk_id = vkBotSession().method('utils.resolveScreenName', {'screen_name': 'redlymood'})['object_id']
+  own_vk_id = vkBotSession().method('utils.resolveScreenName', {'screen_name': 'suyuki_cream'})['object_id']
   return own_vk_id
 #Check Homework
 '''def checkHomeworks():
