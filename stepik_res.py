@@ -1,3 +1,3 @@
 #Oauth 2
-client_id_pr = 'tcu8ArgB0jPIyAr36HI3DQZVYSign2Xr1hWSSD6L'
-client_secret_pr = 'qyCgLZ9fZscXFji62Uf62k674Ca1xxE2v761ThwZnUpkiFNZW1JmCq9TSe5FcxfpdZsOEnjJ4vWwivZeIFGgfiRmrAC6FxAgAkjd2Z4TE7T25TY3EyxyfLIhTAaWyEXg'
+client_id_pr = '...'
+client_secret_pr = '...'
