@@ -255,7 +255,7 @@ def buttonKeyboardClick(user_id, payload, vk_session, own_vk_id, group_id):
     if res == 6:
       checkOplati(user_id, group_id, vk_session)
       if checkOplati(user_id, group_id, vk_session) != 'Вас нет в списке оплат.':
-        send_messge(user_id, {'message' : 'За этот месяц Вам надо заплатить: ' +
+        send_message(user_id, {'message' : 'За этот месяц Вам надо заплатить: ' +
                               checkOplati(user_id, group_id, vk_session)}, vk_session)
       else:
         send_message(user_id, {'message': 'Вас еще нет в списке оплат или же список не обновлен.' +
@@ -327,7 +327,7 @@ def buttonKeyboardClick(user_id, payload, vk_session, own_vk_id, group_id):
                                                ' Нужно разобраться.',
                                                'dont_parse_links': 0})
     if res == 19:
-       send_message(user_id, {'message': 'Приятной дороги Вам. Будь осторожен!' +
+       send_message(user_id, {'message': 'Приятной дороги Вам. Будьте осторожны!' +
                               ' Сообщение передано сотнику.'}, vk_session)
        vk_session.method('messages.send', {'user_id': own_vk_id,
                                                'random_id': 0,
