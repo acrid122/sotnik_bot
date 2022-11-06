@@ -237,7 +237,7 @@ def buttonKeyboardClick(user_id, payload, vk_session, own_vk_id, group_id):
                              ' обратиться в дежурный чат (в личку сообщества). Или же задать вопрос' +
                              ' в одном из чатов.', 'keyboard': chats_key_board()}, vk_session)
     if res == 4:
-      if lifeAmount(user_id) != 'Вас еще нет в группе':
+      if lifeAmount(user_id) != 'Вас еще нет в группе.':
         send_message(user_id, {'message': 'Количество твоих жизней: ' + lifeAmount(user_id)}, vk_session)
       else:
         send_message(user_id, {'message': 'Вас еще нет в группе.' +
@@ -253,7 +253,6 @@ def buttonKeyboardClick(user_id, payload, vk_session, own_vk_id, group_id):
        send_message(user_id, {'message': 'Укажи, что именно Вы хотите сделать: ',
                              'keyboard': ddays_key_board()}, vk_session)
     if res == 6:
-      checkOplati(user_id, group_id, vk_session)
       if checkOplati(user_id, group_id, vk_session) != 'Вас нет в списке оплат.':
         send_message(user_id, {'message' : 'За этот месяц Вам надо заплатить: ' +
                               checkOplati(user_id, group_id, vk_session)}, vk_session)
@@ -366,8 +365,11 @@ def vkLongPoll(vk_session, group_id):
     '''cur_time = datetime.now()
     q.enqueue_at(cur_time, getInfoAbountStudents)'''
     if event.type == VkBotEventType.MESSAGE_NEW:
+      print(event.object.message)
       user_message = event.object.message['text'].lower()
       user_id = event.object.message['from_id']
+      print(user_message)
+      print(user_id)
       if user_id not in ALL_USERS_IN_CURRENT_SESSION:
         ALL_USERS_IN_CURRENT_SESSION.append(user_id)
         send_message(user_id, {'message': 'Бот "Сотник" приветствует Вас!', 'keyboard': main_key_board()}, vk_session)
@@ -386,7 +388,8 @@ def vkLongPoll(vk_session, group_id):
             vk_session.method('messages.send', {'user_id': findOwnVkId(),
                                                   'random_id': 0,
                                                   'message' : 'Отправил фотку с подтверждением отсрочки: https://vk.com/id' +
-                                                  str(user_id) + ' в ' + str(datetime.now())})
+                                                  str(user_id) + ' в ' + str(datetime.now()),
+                                                  'attachments' : 'photo<387467969>_<457265417>'})
       elif user_message.find("пд:подтверждение") != -1:
          send_message(user_id, {'message': 'Вы не прикрепили фотку.'},vk_session)
 #Start Vk Session
@@ -437,7 +440,7 @@ def checkOplati(user_id, group_id, vk_session):
     if tmp is not None:
       if int(tmp[tmp.find("id")+2:]) in all_members:
         return str(flash_gr.cell(row = i, column = 9).value)
-  return 'Тебя нет в списке оплат.'
+  return 'Вас нет в списке оплат.'
 #Check Life Amount
 def lifeAmount(user_id):
   lifes_list = getInfoAboutStudents()['values']
@@ -448,7 +451,7 @@ def lifeAmount(user_id):
       fl = True
       return line[4]
   if fl == False:
-    return 'Тебя еще нет в группе'
+    return 'Вас еще нет в группе.'
 #Make Date of DD 
 def dDaysTimeChange(change_time):
   if change_time.find('day') != -1:
