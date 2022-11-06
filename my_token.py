@@ -1,0 +1,3 @@
+#Vk_Api
+my_group_id = 216996973
+my_token = 'vk1.a.CTbGxhpXW7x-V4s3wuA7Rm2muEIBAmAtq81OC_iGw0WJMyqakIs69JYGtWEQ8T77HW9L9QtP46CtxCNCVHKdkx_2R2EAYH5TGmJ5roCLeR2r5RmOqxm2naQzXWyFRfJP8VNIeYleO9w1srDSbeiFl2utsmimkoUFgX90z1E9v8EG_QYmdQQWcXkvhK5mwOthXWzygjepuHecoVXFbbLDHw'
