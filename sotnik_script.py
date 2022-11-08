@@ -258,7 +258,7 @@ def buttonKeyboardClick(user_id, payload, vk_session, own_vk_id, group_id):
                               checkOplati(user_id, group_id, vk_session)}, vk_session)
       else:
         send_message(user_id, {'message': 'Вас еще нет в списке оплат или же список не обновлен.' +
-                               ' Сообщение о необходимости разобрать со списком оплат направлено сотнику.' }, vk_session)
+                               ' Сообщение о необходимости разобраться со списком оплат направлено сотнику.' }, vk_session)
         vk_session.method('messages.send', {'user_id': own_vk_id,
                                             'random_id': 0,
                                             'message' : 'Необходимо посмотреть в списке оплат: https://vk.com/id' +
